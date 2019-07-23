@@ -1,0 +1,167 @@
+Application troubleshooting
+
+POD:
+Describe pod -- ready or running / pending(Enough resources) or waiting (Image pull issue) or unhealthy/crashing (Check Logs)
+Pending : kubectl describe pod POD-UID
+Check events
+ImagePullBackOff Or ErrImagePull : kubectl describe pod POD-UID
+Check events
+Check that the image name is correct and try pulling the image manually on the host using docker pull docker pull <image_name>
+PVC Status Show Pending: kubectl get pvc --> kubectl describe pvc pvc-UID
+Check events
+Pod running but not working:
+Validate - Check the above steps
+Validate yaml file kubectl apply --validate -f pod.yml
+It could be due to a failed process in the container or insufficient storage:
+Login in to the container and check the running processes
+kubectl exec -ti POD-UID -- /bin/bash
+> ps ax
+List Containers inside the pod
+kubectl get pod <pod_name> -o jsonpath='{.spec.containers[*].name}' -n <namespace>
+Unable To Look Up Or Resolve Kubernetes Service Names Using DNS:
+Check if the service name you are using is correct.
+Run these commands to check if the service is registered and the pods selected:
+kubectl get svc
+kubectl get endpoints
+If the service is registered run the below command to check the DNS resolution is working or not.
+kubectl exec -it POD-UID nslookup SERVICE-NAME
+Cluster Troubleshooting:
+
+Cluster health
+
+$ kubectl get cs # Component status
+NAME                 STATUS    MESSAGE              ERROR
+scheduler            Healthy   ok
+controller-manager   Healthy   ok
+etcd-0               Healthy   {"health": "true"}
+Check nodes are all registered correctly.
+
+kubectl get nodes
+Check the logs
+
+Master:
+
+/var/log/kube-apiserver.log - API Server, responsible for serving the API
+/var/log/kube-scheduler.log - Scheduler, responsible for making scheduling decisions
+/var/log/kube-controller-manager.log - Controller that manages replication controllers
+Node:
+
+/var/log/kubelet.log - Kubelet, responsible for running containers on the node
+/var/log/kube-proxy.log - Kube Proxy, responsible for service load balancing
+Kubectl Unable To Find Your Nodes:
+
+Error: the server doesn't have a resource type "nodes" Solution: This occurs because the authentication credentials are not correctly set. To resolve this, copy the configuration file /etc/kubernetes/admin.conf to ~/.kube/config in a regular user account (with sudo if necessary) and try again. This command should not be performed in the root user account.
+Docker Space issue
+
+systemctl stop kubelet
+systemctl stop docker
+  cd /var/lib/docker
+  tar -czvf /tmp/docker.tar.gz *
+  cd /tmp
+  ls -latr
+  tar -zxvf /tmp/docker.tar.gz -C /docker
+  rm -rf /var/lib/docker
+  ln -s /docker /var/lib/docker
+  ll /var/lib/docker
+  cd /var/lib/docker
+  du -sh *
+systemctl start docker
+systemctl start kubelet
+  docker ps
+  journalctl -u kubelet.service -f
+  docker ps
+Controller-Manager:
+
+Node Controller: Responsible for noticing and responding when nodes go down.
+Replication Controller: Responsible for maintaining the correct number of pods for every replication controller object in the system.
+Endpoints Controller: Populates the Endpoints object (that is, joins Services & Pods).
+Service Account & Token Controllers: Create default accounts and API access tokens for new namespaces.
+Cloud Controller-Manager
+
+Node Controller: For checking the cloud provider to determine if a node has been deleted in the cloud after it stops responding
+Route Controller: For setting up routes in the underlying cloud infrastructure
+Service Controller: For creating, updating and deleting cloud provider load balancers
+Volume Controller: For creating, attaching, and mounting volumes, and interacting with the cloud provider to orchestrate volumes
+TAINT:
+
+Node restrictions like labels
+Difference between Replication Controller, Replica Sets and Deployements.
+
+The major difference is that the rolling-update command works with Replication Controllers, but won’t work with a Replica Set. This is because Replica Sets are meant to be used as the backend for Deployments.
+
+Replication Controller: Will make sure the desired number of pods are running as per the spec.
+
+Replica Sets: Same as replication controller but have few more feature like you can deploy pods using matchlabel. Example:
+
+spec:
+   replicas: 3
+   selector:
+     matchExpressions:
+      - {key: app, operator: In, values: [soaktestrs, soaktestrs, soaktest]}
+      - {key: teir, operator: NotIn, values: [production]}
+  template:
+     metadata:
+The app label must be soaktestrc, soaktestrs, or soaktest
+The tier label (if it exists) must not be production
+Deployments: Deployments are intended to replace Replication Controllers. They provide the same replication functions (through Replica Sets) and also the ability to rollout changes and roll them back if necessary.
+
+Services:
+
+Abstraction layer which make sure the traffic is flowed through it in a stateless application
+Abstraction defines a logical set of pods and enable external traffic exposure
+LB/External IP: Accessible from outside the cluster
+ClusterIP: Accessible from inside the cluster
+NodePort: ServiceDNS and Pod DNS
+Service DNS: <SERVICE_NAME>.<namespace>.<service>.<cluster>.local
+POD DNS: <POD_IP>.<namespace>.<service>.<cluster>.local
+ETCD:
+
+Backup ETCD
+Side effects we get when we retrive etcd cluster from back up
+Canary Updates
+
+Pattern for reducing risk involved with releasing new software versions.
+Can be done using percentage basis rollout.
+We can use Ingress to split the traffic of the Canary deployment to be accessible on a subdomain.
+example.com        --|                 |-> app-service 80
+                     |   Ingress IP    |
+canary.example.com --|                 |-> app-canary-service 80
+Garbage Collection
+
+Used to delete objects which doesnot have owners and dependents
+Garbage collector deletes objects in 2 ways
+Foreground cascading deletion
+Background cascading deletion
+Click here for reference
+
+Varnish-Ingress
+
+Click here for reference
+
+Secret Types
+
+SecretType = "Opaque"                                 // Opaque (arbitrary data; default)
+SecretType = "kubernetes.io/service-account-token"    // Kubernetes auth token
+SecretType = "kubernetes.io/dockercfg"                // Docker registry auth
+SecretType = "kubernetes.io/dockerconfigjson"         // Latest Docker registry auth
+For reference of the Source code list click here
+
+Usage
+
+Create a shortcut to switch namespaces:
+$ vi usr/local/bin/kubens
+
+kubectl config set-context $(kubectl config current-context) --namespace=$1
+Run:
+$ kubens <name_space>
+Scaling:
+kubectl scale --replicas=3 rs/foo                                 # Scale a replicaset named 'foo' to 3
+kubectl scale --replicas=3 -f foo.yaml                            # Scale a resource specified in "foo.yaml" to 3
+kubectl scale --current-replicas=2 --replicas=3 deployment/mysql  # If the deployment named mysql's current size is 2, scale mysql to 3
+kubectl scale --replicas=5 rc/foo rc/bar rc/baz                   # Scale multiple replication controllers
+Pod Metrics:
+kubectl top pod POD_NAME --containers               # Show metrics for a given pod and its containers
+Get events from namespace:
+kubectl get events -w -n <NAME_SPACE>
+Extract .crt file from already created tls secret.
+kubectl get secret example-tls -n dev -o yaml | grep tls.crt | awk '{print $2}' | base64 -d
