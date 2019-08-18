@@ -1,0 +1,8 @@
+Docker Volumes :
+example of bind volume:
+docker container run -d \
+  --name nginx-bind-mount1 \
+  --mount type=bind,source="$(pwd)"/target,target=/app \
+  nginx
+  
+  
