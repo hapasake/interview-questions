@@ -17,3 +17,16 @@ df -h showing full but it is free
 docker service architecture
 lsof
 
+ssh access to user with out changing etc/ssh/sshd_config.
+
+what is the exact adavantage of ansible module with file as example
+
+python array vs list difference
+
+docker layers
+
+$$ means
+
+$?
+
+hostname with same name how we configure via network 
