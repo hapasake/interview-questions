@@ -1,21 +1,43 @@
 ubuntu and centos differences
+
 use of nohup command in linux
+make process as deamon which runs backend unless you kill manually.
+
 fork command 
+system call used to create new process.
+
 exact command in linux
+The exec system call is used to execute a file which is residing in an active process. 
+
 parent ,child processes.
+
 syscall
+
 ping vs telnet
+
 udp vs tcp
+connection less and connection oriented protocalls.
+
 trouble shooting application process
+
 connectivity troubleshooting with telnet
+
 public ip vs private ips
+
 python code for fibonaaci series ,palindrome .
+
 boto3 python module aws questions
+
 lambda function use cases
+
 inode
+
 df -h showing full but it is free
+
 docker service architecture
+
 lsof
+used to see ports listening
 
 ssh access to user with out changing etc/ssh/sshd_config.
 
