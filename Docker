@@ -5,4 +5,93 @@ docker container run -d \
   --mount type=bind,source="$(pwd)"/target,target=/app \
   nginx
   
+  ======================
   
+  How do you check network connectivity to a server?
+
+    ping
+
+    telnet
+
+    traceroute
+
+    tcpdump
+
+• How do you do a DNS lookup on a domain
+
+    nslookup domianname
+
+• How do you monitor network traffic of a server
+
+    ptraf and iftop helps to monitor network traffic on linux server.
+
+• How do you use a bastion server to connect to a sandboxed network Server administration
+
+    We us bastion server as a jump box to our sandbox/internal network to establish connectivity to our sandbox instances.
+    
+• How do you determine the process ID of a process consuming a large amount of CPU
+
+for cpu statictics
+
+    ps -ef ,top ,vmstat 
+
+• How do you stop a process by PID
+
+    kill -9 PID
+
+• How do you find what port a process is attached to
+
+    lsof and netstat -ltnp  commands helps to identify port number of process.
+
+
+Docker Questions
+
+• What is the difference between a build arg and environment variable?
+
+    ENV is mainly to provide default values for future environment variables.
+
+    ARG's not available after image is built .Running container cannot access arg .
+
+• When building a docker image, what is the build context?
+
+    Docker builds docker image with the docker files. Build context can be set of files from github url or local path.
+
+• What is the difference between an ADD and COPY directive in a Dockerfile?
+
+    COPY command helps to copy files from source and destination whereas ADD command uses mostly to extract tar file to a specific directory in docker image.
+
+• What is the difference between CMD and ENTRYPOINT in a Dockerfile?
+
+    CMD sets default commands which can be overwritten when dokcer container is runnining
+
+    ENTRYPOINT configures a container that run as executable.
+
+• How do you ensure that two containers are able to communicate over a TCP port but a user can communicate with only one of the containers
+
+    Two containers will communicate over the overlay network. 
+
+    Use --link feature to establish communication between two containers 
+
+    ex: web and db
+
+    user can interact with web container but db is only accessed by web container.
+
+• How do you ensure persistent data is stored across / between ephemeral containers
+    
+    Volume mounts to store the data of the ephemeral containers.
+
+
+Kubernetes Questions: 
+
+• What is the difference between a container and a pod
+
+    pod consists of group of containers where as container is software unit that packages code and dependencies running in application.
+
+• What is the difference between a deployment and a service
+
+    Deployment make sure desired pods  and actual pods are running or not where as service is enabling network to access pods from outside .
+
+• What is the difference between a Persistent Volume and a Persistent Volume Claim?
+
+    Persistent volume is the physical volume on the host machine that stores your persistent data. 
+    Persistent volume claim is a request for the platform to create a Persistent volume (PV) for you, and you attach PVs to your pods via a PVC.
