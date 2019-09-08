@@ -15,10 +15,11 @@ syscall
 
 ping vs telnet
 
+
 udp vs tcp
 connection less and connection oriented protocalls.
 
-trouble shooting application process
+trouble shooting application process?
 
 connectivity troubleshooting with telnet
 
@@ -52,3 +53,9 @@ $$ means
 $?
 
 hostname with same name how we configure via network 
+
+
+ports checking :
+
+lsof -i -P -n | grep LISTEN
+sudo netstat -tulpn | grep LISTEN.
