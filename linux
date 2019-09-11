@@ -59,3 +59,5 @@ ports checking :
 
 lsof -i -P -n | grep LISTEN
 sudo netstat -tulpn | grep LISTEN.
+
+explain this  ls -l |grep ^d | awk print {"NF"} | sed -e "/g/foo/groo/"
