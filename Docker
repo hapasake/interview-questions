@@ -95,3 +95,5 @@ Kubernetes Questions:
 
     Persistent volume is the physical volume on the host machine that stores your persistent data. 
     Persistent volume claim is a request for the platform to create a Persistent volume (PV) for you, and you attach PVs to your pods via a PVC.
+
+docker layers
