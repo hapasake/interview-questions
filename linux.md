@@ -120,9 +120,11 @@
         There you have it. That is what happens during the Linux boot process.
 
 * 1st process in linux
+    
     Init process is the mother (parent) of all processes on the system, it's the first program that is executed when the Linux system boots up; it manages all other processes on the system. It is started by the kernel itself, so in principle it does not have a parent process. The init process always has process ID of 1
 
 * what happens when you type ps -ef in linux
+    
     On the deeper level, this is what happens when you type “ls -l” and “enter” in the shell:
     First and foremost, the shell prints the prompt, prompting the user to enter a command. The shell reads the command ls -l from the getline() function’s STDIN, parsing the command line into arguments that it is passing to the program it is executing.
 
