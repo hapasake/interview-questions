@@ -43,4 +43,4 @@
 
 * lambda function use cases
 
-* python array vs list difference
+* Python array vs list difference
