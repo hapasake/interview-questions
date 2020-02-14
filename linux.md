@@ -24,7 +24,7 @@
 
 * public ip vs private ips
 
-* inode
+* inode --metadata about files and directories.inode cannot be increased.
 
 * df -h showing full but it is free
 
