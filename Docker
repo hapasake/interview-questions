@@ -45,6 +45,12 @@ for cpu statictics
 
 
 Docker Questions
+. Docker Architecture consists of a Docker Engine which is a client-server application with three major components:
+ A server which is a type of long-running program called a daemon process (the docker command).
+ A REST API which specifies interfaces that programs can use to talk to the daemon and instruct it what to do.
+ A command line interface (CLI) client (the docker command).
+ The CLI uses the Docker REST API to control or interact with the Docker daemon through scripting or direct CLI commands. Many other Docker applications use the underlying API and CLI.
+
 
 • What is the difference between a build arg and environment variable?
 
