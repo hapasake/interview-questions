@@ -50,6 +50,29 @@
 
 * explain this  ls -l |grep ^d | awk print {"NF"} | sed -e "s/foo/groo/g"
 
+* W (gives information oflogin users )
+ 09:22:52 up 19:11,  1 user,  load average: 0.11, 0.05, 0.01
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+oem      pts/0    53.255.98.86     09:22    1.00s  0.05s  0.01s w
+
+* cat /etc/paswd ----gives users list with their permissions
+
+* cat /etc/shadow -----gives infomation about user passwords encryption
+
+* DHCP: Dynamic host configuration protocal which assigns ip address dynmically to hosts.
+
+* DNS : first try to fetch configuration from /etc /resolve.conf file.
+
+* find command linux use cases:
+      --find ./GFG -name sample.txt -exec rm -i {} \;
+         When this command is entered, a prompt will come for confirmation, if you want to delete sample.txt or not. if you enter ‘Y/y’          it will delete the file.
+      -- find ./ -type f -name "*.txt" -exec grep 'Geek'  {} \;
+          This command print lines which have ‘Geek’ in them and ‘-type f’ specifies the input type is a file.
+      -- find / -type d -name "dir-name-here"
+          -type d specifies input type is directory.
+
+
+
 * Machine Boot process
     1. BIOS
         BIOS stands for Basic Input/Output System
