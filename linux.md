@@ -24,7 +24,7 @@
 
 * public ip vs private ips
 
-* inode
+* inode --metadata about files and directories.inode cannot be increased.
 
 * df -h showing full but it is free
 
@@ -37,18 +37,18 @@
 
 * what is the exact adavantage of ansible module with file as example
 
-* $$ means
+* $$ means PID
 
-* $?
+* $? exit status of command you just run.
 
-* hostname with same name how we configure via network 
+* hostname with same name how we configure via network  ----cname
 
 * ports checking :
 
     lsof -i -P -n | grep LISTEN
     sudo netstat -tulpn | grep LISTEN.
 
-* explain this  ls -l |grep ^d | awk print {"NF"} | sed -e "/g/foo/groo/"
+* explain this  ls -l |grep ^d | awk print {"NF"} | sed -e "s/foo/groo/g"
 
 * Machine Boot process
     1. BIOS
@@ -135,3 +135,6 @@
     Then, the shell looks for a program file called ls where all the executable files are in the system — in the shell’s environment (an array of strings), specifically in the $PATH variable. The $PATH variable is a list of directories the shell searches every time a command is entered. $PATH, one of the environment variables, is parsed using the ‘=’ as a delimiter. Once the $PATH is identified, all the directories in $PATH are tokenized, parsed further using ‘:’ as a delimiter.
 
     Ref: [Click-here](https://medium.com/meatandmachines/what-really-happens-when-you-type-ls-l-in-the-shell-a8914950fd73)
+    
+    
+   

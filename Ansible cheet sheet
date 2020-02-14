@@ -1,0 +1,37 @@
+ansible all -m ping
+
+ansible all -m ping -u sammy
+
+ansible all -m ping --private-key=~/.ssh/custom_id
+
+ansible all -m ping --ask-pass
+
+ansible-playbook myplaybook.yml
+
+-----To overwrite the default hosts option in the playbook and limit execution to a certain group or host, include the option -l in your command:
+
+ansible-playbook -l server1 myplaybook.yml
+
+------The option --list-tasks is used to list all tasks that would be executed by a play without making any changes to the remote servers:
+
+ansible-playbook myplaybook.yml --list-tasks
+ansible-playbook myplaybook.yml --list-hosts
+ansible-playbook myplaybook.yml --list-tags
+
+------Controlling Playbook Execution
+You can use the option --start-at-task to define a new entry point for your playbook. Ansible will then skip anything that comes before the specified task, executing the remaining of the play from that point on. This option requires a valid task name as argument:
+
+ansible-playbook myplaybook.yml --start-at-task="Set Up Nginx"
+
+-----ansible valuts
+if your ansible playbook has credentials stored in it,we can create encrypt those by creating valut file or editing existing valut files.
+
+ansible-vault create credentials.yml
+
+-----To encrypt existing credential file
+ansible-vault encrypt credentials.yml
+
+------Debugging
+ansible-playbook myplaybook.yml -v
+ansible-playbook myplaybook.yml -vvvv
+
