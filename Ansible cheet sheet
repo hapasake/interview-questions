@@ -35,3 +35,10 @@ ansible-vault encrypt credentials.yml
 ansible-playbook myplaybook.yml -v
 ansible-playbook myplaybook.yml -vvvv
 
+-----Ansible.cfg
+
+fork =5 it will consecute playbook execution parlaly on 5 nodes at a time.
+
+cmd vs shell module:
+
+
