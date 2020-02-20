@@ -1,3 +1,9 @@
+kubeproxy : kubeproxy manages ip tables of the pods .
+
+Kubenertes config file : whenever u bootstramp a kubernetes cluster ,config file will be created under ~/.kube/config.
+
+
+
 kubectl get namespace
 kubectl create namespace "name"
 kubectl config set-context --current --namespace=<insert-namespace-name-here>
