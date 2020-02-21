@@ -37,9 +37,11 @@
 
 * what is the exact adavantage of ansible module with file as example
 
-* $$ means PID
+* $$ means PID curent process
 
 * $? exit status of command you just run.
+
+* $! - to kill background process.
 
 * hostname with same name how we configure via network  ----cname
 
