@@ -1,0 +1,113 @@
+— can you please explain your current roles and responsibilities 
+
+
+-- do you know the server build process and did you work on different hardware types and what are they 
+kickstart network installation using pxe server 
+
+Kickstart installations can be performed using a local DVD, a local hard drive, NFS, FTP, HTTP, or HTTPS.
+To use Kickstart, you must:
+Create a Kickstart file.
+Make the Kickstart file available on removable media, a hard drive or a network location.
+Create boot media, which will be used to begin the installation.
+Make the installation source available.
+Start the Kickstart installation.
+
+-- Do you use cobbler or general pxe sever to install OS
+pxe server preboot execution enviornment
+
+--after os installation ...how did you bring up the system into the network
+Every network interface has its own configuration file in the /etc/sysconfig/network-scripts directory. Each interface has a configuration file named ifcfg-<interface-name>X, where X is the number of the interface, starting with zero or 1 depending upon the naming convention in use; for example /etc/sysconfig/network-scripts/ifcfg-eth0 for the first Ethernet interface.
+
+Most of the other files in the /etc/sysconfig/network-scripts directory are scripts used to start, stop and perform various network configuration activities.
+
+
+-- did you work on any file system issues 
+
+In Linux, there are many file systems:
+
+Ext, Ext2, Ext3, Ext4, JFS, XFS, btrfs, ufs, autofs, devpts, ntfs and swap.
+
+fsck commad to check and repair file systems
+
+
+-- How do you debug performance issues  
+Performance problems are caused by bottlenecks in one or more hardware subsystems, depending on the profile of resource usage on your system. Some elements to consider (in roughly sorted order):
+
+buggy software
+disk usage df -h
+memory usage vmstat
+CPU cycles  
+network bandwidth iftop,iptraf
+ 
+-- Do u have any experience in  Scripts ? What are they
+python scripts
+
+— I need to get the 500 servers Ip’s 
+#!/bin/bash
+
+START=0
+END=100
+
+for I in $(seq $START $END)
+do
+    echo "192.168.0.$I"
+done
+
+---Ilo Interface Names —   
+
+-- how do you change the file system values
+
+---What are the two files of crontab command?
+cron.allow – It decides which users need to be permitted from using crontab command.
+cron.deny – It decides which users need to be prevented from using crontab command.
+
+What command needs to be used to take the backup?
+
+ tar
+
+How to debug the problems encountered in shell script/program?
+
+Using “set -x” we can enable debugging in the script.
+
+Have you ever used ansible playbook ...
+Playbooks   — 
+
+ what is the best approach to append a line in a file 
+ >>
+ cat
+
+Sysctl parameters 
+
+sysctl is used to modify kernel parameters at runtime. The parameters available are those listed under /proc/sys/. Procfs is required for sysctl support in Linux. You can use sysctl to both read and write sysctl data.
+
+Ansible  or puppet 
+
+How do we manage virtual environment in current 
+
+How do you manage the changes 
+
+Tell about your recent trouble shooting things ?
+
+How do make the grub changes permanent  in OEL6 and OEl7?
+
+How do they patch servers 
+
+Rpm bundle 
+
+Give me a scenario — 5 app location …what application is using how much memory 
+
+
+How do we add routing on the server 
+
+route add 
+How do we check the routing table 
+route -n or netstat -rn
+
+How To Check Open Ports On A Remote Server Without Netcat Or Nmap Linux Command?
+lsof -i -p -n
+
+What  do u think If SE linux enableD or permissive ? What is the current environment 
+
+
+What is the current version of Vcenter 
+ How doo you upgrade centre 
