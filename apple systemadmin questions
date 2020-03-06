@@ -6,11 +6,16 @@ kickstart network installation using pxe server
 
 Kickstart installations can be performed using a local DVD, a local hard drive, NFS, FTP, HTTP, or HTTPS.
 To use Kickstart, you must:
-Create a Kickstart file.
-Make the Kickstart file available on removable media, a hard drive or a network location.
-Create boot media, which will be used to begin the installation.
-Make the installation source available.
-Start the Kickstart installation.
+1)Create a Kickstart file.(anaconda-ks.cfg)
+2)Make the Kickstart file available on removable media, a hard drive or a network location
+   Copy kikckstart configuration file to ftp server path  (var/ftp/pub)
+3)validate kickstart with ks validator
+    ksvalidator anaconda-ks.cfg
+4)Create boot media, which will be used to begin the installation
+Add Kikstart Installation Label to PXE Server Configuration 
+ nano /var/lib/tftpboot/pxelinux.cfg/default
+5)From boot menu press f8 and select kikcstart option with pxe server.
+6)Start the Kickstart installation.
 
 -- Do you use cobbler or general pxe sever to install OS
 pxe server preboot execution enviornment
@@ -36,7 +41,7 @@ Performance problems are caused by bottlenecks in one or more hardware subsystem
 buggy software
 disk usage df -h
 memory usage vmstat
-CPU cycles  
+CPU cycles  top
 network bandwidth iftop,iptraf
  
 -- Do u have any experience in  Scripts ? What are they
@@ -56,6 +61,7 @@ done
 ---Ilo Interface Names —   
 
 -- how do you change the file system values
+ chmod 
 
 ---What are the two files of crontab command?
 cron.allow – It decides which users need to be permitted from using crontab command.
@@ -98,16 +104,16 @@ Give me a scenario — 5 app location …what application is using how much memo
 
 
 How do we add routing on the server 
-
-route add 
+  route add 
 How do we check the routing table 
-route -n or netstat -rn
+   route -n or netstat -rn
 
 How To Check Open Ports On A Remote Server Without Netcat Or Nmap Linux Command?
 lsof -i -p -n
-
+netstat -tnlp
 What  do u think If SE linux enableD or permissive ? What is the current environment 
 
 
 What is the current version of Vcenter 
- How doo you upgrade centre 
+vcenter 6.7
+ 
