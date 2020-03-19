@@ -1,0 +1,15 @@
+nginx is a open source tool which can be a web server,reverse proxy server ,laod balancer ,content cache ,API gateway ,Kubernetes ingress controller ,web application firewall.
+
+Nginx plus architecture      ---master process. (It reads as well as evaluates configuration and maintains worker processes)
+                             ---Child processes (It actually does the processing of the requests)
+                             ---Non-blocking
+                             ---Nginx reload 
+
+Configuration file locations  ---- /etc/nginx/nginx.conf
+                              ---- /etc/nginx/conf.d/default.conf
+    
+    
+Nginx commands :  nginx -v
+                  nginx -t (check configuraton)
+                  nginx -T (view configuration)
+                  nginx -s reload (reload configuration)
