@@ -8,6 +8,19 @@ ansible all -m ping --ask-pass
 
 ansible-playbook myplaybook.yml
 
+ansible-playbook -i inventory play.yml
+options :
+     -K ask for become password
+     -k ask password to connect
+     -C  run play in check mode
+ 
+ passing variable file to ansible 
+ ansible-playbook -i inventory play.yml -e @var.yml
+ 
+ modules:
+ command ,template ,file ,copy ,yum 
+ 
+
 -----To overwrite the default hosts option in the playbook and limit execution to a certain group or host, include the option -l in your command:
 
 ansible-playbook -l server1 myplaybook.yml
