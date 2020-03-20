@@ -20,6 +20,34 @@ options :
  modules:
  command ,template ,file ,copy ,yum 
  
+ 
+ stat module returns informarion about target file.
+ when is used to write conditions in playbook
+ example :
+ tasks: Gather information
+ stat: 
+   path: "{{hostname}}"
+ register: hostname
+ command: mv "{{targetfile}}" /home/ansible
+ when: hostname.stat.exists == t or false
+ 
+ 
+ notify and handler
+ listen corrsponds to notify
+ handlers use service module
+ 
+ 
+ -----Error handling in ansile playbooks 
+     --limit is used to run playbook on specific hosts
+     --ignore_errors: yes or no 
+     --changed_when
+     --failed_when (ansible allows failure conditions with failed_when keyword)
+  
+ Debug module is used to troubleshoot errors
+ block ---group tasks in to blocks
+ rescue --- special block that is excuted when preciding block fails
+ always --- special block always executes after preciding block.
+
 
 -----To overwrite the default hosts option in the playbook and limit execution to a certain group or host, include the option -l in your command:
 
