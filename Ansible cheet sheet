@@ -82,4 +82,6 @@ fork =5 it will consecute playbook execution parlaly on 5 nodes at a time.
 
 cmd vs shell module:
 
-
+With the Command module the command will be executed without being proceeded through a shell. As a consequence some variables like $HOME are not available. And also stream operations like <, >, | and & will not work.
+The Shell module runs a command through a shell, by default /bin/sh. This can be changed with the option executable. Piping and redirection are here therefor available.
+The command module is more secure, because it will not be affected by the user’s environment.
