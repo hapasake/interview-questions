@@ -7,6 +7,9 @@ Nginx plus architecture      ---master process. (It reads as well as evaluates c
 
 Configuration file locations  ---- /etc/nginx/nginx.conf
                               ---- /etc/nginx/conf.d/default.conf
+                              
+                              etc/nginx/sites-available
+                              etc/nginx/sites-enabled
     
     
 Nginx commands :  nginx -v
