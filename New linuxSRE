@@ -1,0 +1,766 @@
+
+SRE interview questions — 
+
+Very Key — 
+
+https://syedali.net/engineer-interview-questions/
+https://github.com/chassing/linux-sysadmin-interview-questions
+
+questions to ask an interviewer — 
+
+https://www.glassdoor.com/blog/questions-ask-an-interviewer/
+
+https://www.guruadvisor.net/en/software-saas/465-advanced-linux-troubleshooting-methods-and-tools-for-diagnostics-and-problem-identification
+
+https://www.computernetworkingnotes.com/networking-tutorials/types-of-network-protocols-explained-with-functions.html
+
+https://azalio.wordpress.com/2016/02/22/site-reliability-engineer-in-google/
+
+https://jivoi.github.io/2016/01/22/linux-sysadm-devops-interview-questions/
+
+https://www.udemy.com/bash-scripting/
+
+http://java-questions.com/ds-time-complexity.html
+
+https://www.linuxtechi.com/experience-linux-admin-interview-questions/
+
+https://www.whizlabs.com/blog/top-linux-interview-questions-answers/
+
+
+https://www.interviewbit.com/practice/
+https://www.hackerrank.com/resources/?h_r=home&h_l=header
+
+https://www.geeksforgeeks.org/find-a-pair-swapping-which-makes-sum-of-two-arrays-same/
+
+inode
+https://tecadmin.net/what-is-inode-number-in-linux/
+
+Take heap dump using jmap:
+ jmap -dump:format=b,file=heap.bin 6920
+
+
+		tcpdump -D : display all available interfaces
+		tcpdump -i eth0 : capture traffic at the interface “eth0”
+		tcpdump -i any : capture traffic at any interface
+		tcpdump -i wlan0 port 80 : capture traffic at the interface “wlan0” on port 80
+		tcpdump -i wlan0 -c 5 : capture 5 packets at the interface “wlan0”
+		tcpdump -i wlan0 tcp : capture only tcp traffic at interface “wlan0”
+		tcpdump -i wlan0 src 192.168.1.1 : capture traffic at interface “wlan0” with source IP 192.168.1.1
+		tcpdump -i wlan0 dst 192.168.1.1 : capture traffic at interface “wlan0” with destination IP 192.168.1.1
+		tcpdump “src port 22” and “dst host 1.2.3.4” : tcpdump command with boolean opertators
+		tcpdump -i wlan0 -s 65535 : capture traffic with snapshot size as 65535 bytes, by default its 262144 bytes. Older versions of tcpdump captures 68 or 96 bytes.
+		tcpdump -i wlan0 -w dump.pcap : capture traffic at the interface “wlan0” and write into a pcap file
+		tcpdump -r dump.pcap : read captured file (we can use wireshark instead and its preferred)
+
+more info — https://medium.com/@eranda/analyze-tcp-dumps-a089c2644f19
+
+boot process 
+— BIOS (Basic Input Output System)
+—> MBR — GRUB — KERNEL — INIT — RUN LEVELS
+https://www.thegeekstuff.com/2011/02/linux-boot-process
+
+load average in linux 
+
+sum link vs hard link
+https://blog.usejournal.com/what-is-the-difference-between-a-hard-link-and-a-symbolic-link-8c0493041b62
+
+https://stackoverflow.com/questions/185899/what-is-the-difference-between-a-symbolic-link-and-a-hard-link
+
+Java  — 
+
+mem allocation in java
+https://www.guru99.com/java-stack-heap.html
+
+GC
+https://www.hackerearth.com/practice/notes/how-garbage-collection-works-in-java/
+
+How Arguments are passed in Java
+passing Primitive datatypes (int, float) is pass by value
+passing array indexes is basically pass by reference
+
+
+diff between Hashmap & Binary search — 
+https://brackece.wordpress.com/2012/09/18/hash-table-vs-binary-search-tree/
+
+mv * 
+— If two files in the folder; contents of file1 are copied to file2
+— If more than two files; fails with asking source & target.
+
+remove -f file  
+— rm ./ -.log
+https://www.linux.com/blog/linux-shell-tip-remove-files-names-contains-spaces-and-special-characters-such
+
+C++ — Vector and list
+https://thispointer.com/difference-between-vector-and-list-in-c/
+
+insert and 
+
+recursion vs iteration
+
+TCP
+
+TCP FIN
+
+
+TCP packet loss
+
+TCP jump
+
+ps
+
+start the process
+		Using The System() Function – this method is relatively simple, however, it’s inefficient and has significantly certain security risks.
+		Using fork() and exec() Function – this technique is a little advanced but offers greater flexibility, speed, together with security.
+https://www.techrepublic.com/article/how-to-start-stop-and-restart-services-in-linux/
+
+process stages
+https://www.tecmint.com/linux-process-management/
+
+-9 on zombie process
+https://docstore.mik.ua/orelly/unix3/upt/ch24_19.htm
+
+—> 
+
+Boot an OS
+
+vmstat
+https://www.howtoforge.com/linux-vmstat-command/
+
+sar
+
+top
+
+free
+
+ps -aux
+
+sym link vs hard link
+
+max file name in linux — 255 chars
+
+max path is 4096 chars
+
+Deamon thread that tracks events on your linux system - syslogd
+
+knowledge about the process lifecycle
+
+https://www.linuxjournal.com/article/10688
+
+How is the monitoring setup — how do you calculates the percentage of SVC time over a period of time —
+
+What are your primary tasks 
+
+When was the Big Outage happened and how did you overcome it and was there any alerting on this
+
+df
+
+log
+
+switch system run level — 
+
+which file is from /etc/vudu.conf — lsof
+
+
+how many kernels are on system
+https://www.putorius.net/list-installed-kernels-and-currently.html
+
+Ansible playbook to check register entry is present
+
+$?
+
+$?-The exit status of the last command executed.
+$0-The filename of the current script.
+$#-The number of arguments supplied to a script.
+$$-The process number of the current shell. For shell scripts, this is the process ID under which they are executing.
+
+
+kill default command
+
+To send a signal to a process, use the kill, pkill or pgrep commands we mentioned earlier on. But programs can only respond to signals if they are programmed to recognize those signals.
+And most signals are for internal use by the system, or for programmers when they write code. The following are signals which are useful to a system user:
+		SIGHUP 1 – sent to a process when its controlling terminal is closed.
+		SIGINT 2 – sent to a process by its controlling terminal when a user interrupts the process by pressing [Ctrl+C].
+		SIGQUIT 3 – sent to a process if the user sends a quit signal [Ctrl+D].
+		SIGKILL 9 – this signal immediately terminates (kills) a process and the process will not perform any clean-up operations.
+		SIGTERM 15 – this a program termination signal (kill will send this by default).
+		SIGTSTP 20 – sent to a process by its controlling terminal to request it to stop (terminal stop); initiated by the user pressing [Ctrl+Z].
+
+
+what does yum do — https://access.redhat.com/articles/yum-cheat-sheet
+
+uname 
+
+Var/logs which app is creating huge logs
+lsof
+
+how to install an OS
+
+which all system calls are invoked from a script ?
+strace
+
+switch the kernel 
+
+how to install a kernel
+
+how to install a package — https://www.tecmint.com/20-linux-yum-yellowdog-updater-modified-commands-for-package-mangement/
+
+O(1) < O(log N) < O(N log N) < O(N>2) < O(2>N) < O (N!).
+
+
+
+
+Why is it hard to build a consistent and reliable distributed system?
+Define the CAP Theorem.
+How would you assess how "deployable" a system is?
+How would you deploy software to 5000 systems?
+What are some examples of how you might scale a write/read-heavy app? Why?
+How would you migrate application xyz from a traditional datacenter to AWS cloud?
+Design a system that would scan 100,000 URLs for the Heartbleed vulnerability reasonably quickly. You can use any open source projects, programming languages, tools, etc.
+How would you design a distributed lock?
+You are hired by a startup and told "Here's a bunch of money.  We expect a million users on day one.  Go build a system that can handle it."  Now what?
+
+
+Forget this role. Describe for me your “ideal” job.
+		1. Working With People
+Tell the interviewer that what really attracted you to this ideal job is that you get to work with people. Consider the interactions you've had with other departments and other staff at the company, and describe how those interactions with you as an outsider made you want to know more about the company and be a part of it. If you've received excellent customer service, don't forget to talk about its impact on you.
+2. Delving Into the Workplace Culture
+Many millennials seek out companies that fit their personality and style. Get to know the workplace culture there ahead of your interview. Stop by and see what the atmosphere is like, get to know some of your future co-workers through LinkedIn, and see what kind of reputation the company has on GlassDoor.com. When the office culture fits your personality, mention that as part of your ideal job.
+3. Accept Challenges
+Perhaps you are someone who likes to challenge yourself and grow. Maybe the position you applied for is a bit beyond your capabilities, but you have the confidence to make the job your own with your unique blend of hard work, personality and efficiency. Talk about how the company is growing, and you want to expand your horizons through a promotion after you prove yourself.
+4. Support Others
+You might enjoy a behind-the-scenes job that supports the company's main goals without necessarily being on the front lines of customer interactions. These jobs could be tech support, IT, sales support or computer programming. If you love numbers, talk about how your ideal job lets you look forward to working with a diverse group of people due to your talents that help others succeed.
+5. Stay on the Leading Edge
+You enjoy the opportunity to stay on the cutting edge of your industry, which is why your perfect job is with this company. Talk about how the employer's reputation as a leader in the field attracted you to the position.
+
+
+
+Give us an example of when you handled a stressful situation.
+Tell me about a time when you were part of a team faced with particularly difficult circumstances; what did you and the team do to resolve it?
+Tell us about your short and long term goals?
+Tell me about yourself. What do you do, day to day?
+Tell me about the hardest you've ever worked.
+What interests you about Apple?
+How well do you work with people? Do you prefer working alone or in teams?
+What motivates you to go the extra mile on a project or job?
+SRE roles can often gravitate towards fire fighting and crises management’. Project work requires detailed, in-depth analysis with prolonged periods of focus. In an interrupt driven operational role, how do you balance support tasks against focused improvement work?
+At your last review, what improvements did your manager suggest you make?
+Tell me about the worst-run/best-run outage you've been a part of. What made it bad/well-run?
+
+
+Scripting / Automation
+You have a list of files in a directory in your homedir, all named “*.doc” (e.g. foo.doc, bar.doc, baz.doc), and you need to rename them to *.txt (e.g. foo.txt, bar.txt, baz.txt). There are thousands of them, so you need to use some form of scripting to do it. Show me how you’d do it.
+Save a sorted list of the top 25 largest files/directories in /Applications to your desktop.  What command did you use?
+In your chosen language write a script to list all of the files in a directory as a web page.
+Create 250 files in /var/tmp with the content of the file being the same as the filename.  Schedule a cleanup job that will delete everything in /var/tmp at 10pm every night.  Show your work.
+Write a monitoring script in your home directory that can detect if a host has been rebooting frequently.  Are there any assumptions the script makes?  Are there edge cases it won’t detect?
+Data Structures / Algorithms
+In programming, there are many elements and structures. Please describe the following and potential use cases: Variable, Conditional, Array, Loop, hash map.
+Define Big O notation.
+You have a list of random integers, how do you find two numbers whose sum is X?  What is the complexity of your solution? Can it be better?
+Give a simple explanation of pass-by-value and pass-by-reference. What does your preferred programming language use? Some of them may even use something else differently.
+What is recursion?  What is it good for?  Can you give me an example of a problem that would be solved by using recursion?
+What happens when you index a column in a database?  Why does this make the lookups faster for that particular column?  What are the downsides to indexing?
+Calculate the angle between the hour hand and minute hand on an analog 12-hour circular clock. Details
+Given a list of variable size containing strings, write a function to filter out duplicates. Details
+You have a fixed-size list of integers from 1 to N (inclusive), but one of them is randomly removed. How do you find that missing integer? Details
+Write a function that accepts an integer and returns True if the number is a power of 2, False otherwise. Details
+Configuration Management
+Please tell us about your experience using configuration management to manage a file, package or process. What were some problems you encountered, how did you resolve them, and what did you learn from that experience?
+QA / Tools
+What different types of testing need to be carried out on a software system, and what tools would you use to achieve this testing? What testing is necessary to ensure a new service is ready for production?
+How would you make key aspects of a software system traceable?
+How do you handle version control?
+Code Contribution
+Have you contributed to any open source projects that you'd like to tell us about?
+
+
+
+Coding Skills Assessment - Basic Phone Screen
+
+Instructions for the interviewer
+The goal of this assessment is to screen the candidate on their ability to write two programs. There are two phases to this phone assessment. The first phase tests algorithmically how a candidate can code a program to display the fibonacci sequence. The second phase of the assessment tests the candidates ability to parse an apache log file and display a list of the return codes in order sorted by the most frequent return codes first.  
+There is a git repository with example solutions at ....
+Part One
+Display the output of a fibonacci sequence with a single integer input. 
+Input specifies the number of places of which to calculate the sequence. 
+Score
+They understand the fibonacci sequence - 1 point
+They ask clarifying questions before starting - 1 point
+They get the output correct for the following inputs:
+1 - 1 point
+5 - 2 points
+0 - 2 points
+
+Part Two
+Given a formatted apache log with http status codes (302,404,500,200,etc); display a series of K/V pairs including a count of each of the pairs.
+Score
+They ask clarifying questions before starting - 1 point
+They get the correct output - 4 points
+Part Two (a)
+Take the same log from the previous example and display the K/V pairs in ascending order by frequency of return code. 
+Score
+They get the correct output - 3 points
+Part Two (b)
+Write unit / functional tests for the above code.
+Score
+Write a unit test - 3 points
+Write a functional test - 3 points
+
+
+Instructions to give the candidate
+In this assessment, we will be evaluating your coding skills. There are two parts. The first tests your knowledge of a sequence and ability to write code to display this sequence. The second tests your ability to parse the output of an apache log file. You will use coderpad.io to write and run your code.
+Part One
+For the first part, we'd like you to write a program that displays the output of the fibonacci sequence given arbitrary positive integer input. 
+
+Part Two
+For the second part, we'd like you to write a program that takes a snippet of an apache log file as input and displays a summary of the http status codes and their frequency of occurrence. The output should be similar to:
+302 2
+404 1
+200 6
+Part Two (a)
+To improve upon the previous answer, let's sort the output according to the frequency of return codes. The output should be similar to:
+200 6
+302 2
+404 1
+Part Two (b)
+Now that you've successfully written an http log parser, can you write a test for the code.
+
+
+
+
+Instructions for the interviewer
+The goal of this assessment is to test the candidates' ability to write a python program that interacts with a web API. In this case, we will be coding against the XKCD JSON API. It's a public API, available at https://xkcd.com/json.html.
+There is a git repository with example solutions at https://github.pie.apple.com/epic/xkcd-interview.
+Part One
+Get https://xkcd.com/info.0.json
+Parse the json to see which number comic this is ('num' from the json)
+Print the comic number and the title ('safe_title' from the json)
+Score
+They get the output correct - 3 point
+They check the HTTP status code - 1 point
+They ask clarifying questions before starting - 1 point
+Part Two
+Take the code from part one, but print out the last ten comics. They should write a function that allows them to get an arbitrary comic and either return a data structure with the details (could just be the json).
+Score
+They get the output correct - 4 point
+They write a function that does most of the work - 5 point
+They ask clarifying questions before starting - 1 point
+Part Three (a)
+Write tests for the functions that you've written above. It's possible they don't know how to write tests, in which case, follow the alternative part 3(b) below.
+Score
+Unit Test - 5 points
+Integration Test - 5 points
+Part Three (b)
+Grab the last 100 comics and parse the alt text for each comic, then return the top 10 most used words, as an enhancement, return the list of words only used once, or the words leaving out any articles.
+Score
+Return the top 10 most used words - 5 points
+Return the list of words only used once - 5 points
+
+
+Instructions to give the candidate
+In this assessment, we will be evaluating your coding skills. Using the laptop provided, please connect to this URL https://xkcd.com/json.html (write the url on the whiteboard) and read the documentation on that page.
+Part One
+For the first part, we'd like you to write a program that gets the metatdata for most recent comic, and produces output in the following format:
+Output
+￼
+Hints
+If they're using python, they should use the requests library, urllib3 is probably overkill
+Part Two
+Take the code from part one, but print out the last ten comics
+Part Three (a)
+Write tests for the function(s) that you've written in part two
+Part Three (b)
+Grab the last 100 comics and parse the alt text for each comic, then return the top 10 most used words, as an enhancement, return the list of words only used once, or the words leaving out any articles.
+
+
+Troubleshooting
+Let’s say that after your first month in a new job, you are on-call and a customer contacts you in a panic that the server running linux they use for their critical application is responding very slowly. How would you approach the situation and what steps would you take to resolve it?
+Operating Systems
+What is the difference between a symbolic and hard link? When would you use each?
+Rank the following in terms of speed: Access a register, Access main memory, Perform a context switch, Execute a seek on a 15K RPM drive.
+https://answers.yahoo.com/question/index?qid=20060802094209AARBDkW&guccounter=1
+Describe difference between process and thread.
+What is your favorite Linux distro & why?
+What information is contained in a file inode?
+How do you delete a file that starts with a dash?
+What happens to an application that runs out of memory?
+What are shadow passwords?
+How do you rig Apache to start up on boot? - Follow Up: Apache doesn't start up on boot, and the previous step checks out okay. How do you track down the problem?
+What is your stance on enabling/disabling swap on server systems and why?
+https://haydenjames.io/linux-performance-almost-always-add-swap-space/
+Which system call returns inode information?
+stat()
+What signal does the "kill" command send by default?
+Networking
+What is the difference between layer 2 and layer 3 devices?
+How do you distinguish a DNS problem from a network problem?
+ping/nslookup
+How can you tell what ports on a system are open?
+net stat/lsof
+Describe in detail what happens when you type 'telnet google.com 80' at a bash shell prompt.
+
+How many IP addresses are usable in a /23 network?
+Web
+You have a local machine at home with internet access, tell me as much as you can about what happens when you type “www.apple.com” into the address bar of your web browser.
+Describe POST and GET & the differences of each.
+Describe the HTTP/1.1 use of a 100-continue status (client sends request expecting server 100-continue before proceeding)
+Describe the method to set an HTTP Cookie when visiting a website.
+Are all cookies in your cookie jar visible by all sites?
+Storage
+With 4 disks in a system, is there a difference between RAID 0+1 and RAID 1+0?
+Security
+Security has many components and aspects to it. - If you were tasked with installing a web server running on linux, considering all elements of server installation and use, how would you approach the task from a security context?
+Personal
+Are there any interesting technical side projects you've been involved in that you’d like to tell us about?
+Have you contributed to any technical community discussions that you'd like to tell us about?
+
+
+
+CAP Theorem — 
+
+Consistency: Every read receives the most recent write or an error
+Availability: Every request receives a (non-error) response – without the guarantee that it contains the most recent write
+Partition tolerance: The system continues to operate despite an arbitrary number of messages being dropped (or delayed) by the network between nodes
+
+http://robertgreiner.com/2014/08/cap-theorem-revisited/
+
+5. How would you make software deployable…?
+The ability to script the installation and reconfiguration of software systems is essential to controlled, automated change. Although (rightly) there is an increasing trend for new software to enable this, older systems and products suffer from the assumption that changes would be infrequent and minor, and so make automated changes difficult.
+Software team members who appreciate the need to expose configuration and settings in a manner accessible to automation will talk about Inversion of Control (IoC) and Dependency Injection, scripted installation, test harnesses, separation of concerns, command-line tools, and “infrastructure as code“.
+
+
+Scale 
+
+Efficient way to iterate through a string and find a strong
+
+Some topics to go over for a technical interview (linkedin)— 
+
+Recursion
+Regular expression
+Conditional loops
+Traversing a binary tree and making an API call.
+Brush up on coding in python/Java.
+
+https://medium.com/hackernoon/50-data-structure-and-algorithms-interview-questions-for-programmers-b4b1ac61f5b0
+
+
+How to build resilient systems 
+
+Anagram of strings and different ways to achieve this. .. program, order complexity and best algorithm
+
+find pair from two arrays where the if those pair values are swapped, the array sum is still the same .. program, order complexity and best algorithm
+
+
+linux sed with multiple commands
+
+useful firewalls — 
+
+￼
+
+Distributed tracing
+
+XMPP(Extensible Messaging and Presence protocol) protocol is used for Messaging service .. example IM
+
+2D game -1 for wall and 0 to pass through
+
+traverse through linked list
+
+
+class Solution {
+  private static String[] hosts = {
+      "asa-001", "asa-002", "asa-003", "asa-004", "asa-005", "asa-006",
+      "asa-011", "asa-012", "asa-013", "asa-014", "asa-015", "asa-016",
+      "asa-021", "asa-022", "asa-023", "asa-024", "asa-025", "asa-026",
+      "asr-011", "asu-311", "asu-134", "asu-281", "asv-101", "asv-351",
+      "asw-051", "asw-054", "asx-314", "asx-351", "asy-014", "asy-134",
+      "asz-101", "asz-281", "asz-383", "ata-134", "ata-224", "ata-281",
+      "ata-311", "atb-134", "atb-164", "atb-314", "atb-381", "atc-054",
+      "atc-223", "atc-281", "atc-284", "atc-311", "add-223"
+  };
+
+  // Build a list of replica sets from a list of hosts and the number of
+  // hosts per replica set provided as input
+  //
+  // The input hostnames are in the form of abc-123 where abc is the rack
+  // and 123 is the position within the rack. Replica sets should not have
+  // more than one node from a given rack
+  //
+  // Example returned valid replica sets (from an optimal algorithm):
+  // rsets = [['add-223', 'asa-022', 'asz-101'], ['asa-001', 'atb-381', 'asz-281']] 
+    // rsets = [['asa-022','add-223',  'asz-101'], ['asa-001', 'atb-381', 'asz-281']] # ...
+// # ...
+  // leftover = ['asa-024', 'asa-025', 'asa-026', 'asa-023', 'atc-311']
+  // note that since there are 18 asa- racks and 47 hosts, only 14 sets can
+  // be created (with 15 sets + 3 leftover asa- racks you'd have 48 hosts.)
+
+
+How does a server connect to a destination when there is no route defined
+
+What happens when the replication breaks between a dB server 
+
+How do you add a new dB server for a cluster of master slave arch
+
+How do you troubleshoot a connectivity between a client and server that is not responsive
+
+What happens when you type in google.com
+https://medium.com/@maneesha.wijesinghe1/what-happens-when-you-type-an-url-in-the-browser-and-press-enter-bb0aa2449c1a
+
+Additional configs that you add for nginx than default config
+
+On premise deployment issues vs cloud deployment issues
+
+How do you better manage configs
+
+
+
+net.core.wmem_default = 25165824 
+net.core.wmem_max = 25165824 
+net.ipv4.tcp_congestion_control=htcp 
+net.ipv4.tcp_no_metrics_save = 1 
+net.core.rmem_max = 33554432
+
+
+How do you start a process — 
+sudo systemctl start|stop|restart application.service
+
+Java bean ?
+Design patterns
+Singleton basic class
+OSI layers — https://www.cybrary.it/0p3n/osi-model-7-layers-basic-understanding/
+https://www.dummies.com/programming/certification/getting-to-know-the-osi-model-for-the-ccna-exam/
+How to pick the 
+Systemd & systemCtl — https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
+
+eval five functions — https://docs.splunk.com/Documentation/Splunk/7.3.1/SearchReference/Eval
+five aggregate functions like p99 — https://docs.splunk.com/Documentation/Splunk/7.3.1/SearchReference/Aggregatefunctions
+Top command — 
+Load average ? good and bad averages ?
+https://scoutapm.com/blog/understanding-load-averages
+
+other system monitoring tools and what are they
+Display the 5th columns records in linux using bash
+java beans
+bean scope
+main things in spring boot design
+
+It’s easy to remember the sequence of OSI Model 7 Layers using this simple sentence: “All people seem to need data processing.”
+All = Application Layer
+People= Presentation Layer
+Seem = Session Layer
+To = Transport Layer
+Need = Network Layer
+Data = Data Link Layer
+Processing = Physical Layer
+
+sample WAF rule — 
+
+SecRule REQUEST_URI "@beginswith /ul/sp0" "id:92032,phase:1,t:none,nolog,pass,ctl:ruleRemoveById=950120;ARGS:url"
+
+
+*******************************
+
+traffic team
+blob storage team
+distributed db team
+messaging teams
+monitoring team / application tracing
+
+embedded model
+6:1 dev/sre
+
+SRE — 
+driving reliability, 
+
+operational overhead — 
+persistant storage — privacy and data protection — 
+developer engine to push to fleets
+standup services
+
+destructive update — 
+
+tooling 
+
+2020
+
+other SRE — mvc and cloud initiative — 
+
+data center migration — 
+cloud technologies 
+
+design changes & cloud activities 
+
+automations — cap mgmt
+
+2021
+SLO/SLI
+
+soft dev
+python — 
+JVM — 
+C & C++
+
+sys and networking
+proj mgmt
+
+******************************
+
+
+350 — 
+
+******************
+
+what are some of the best projects of yours — 
+what is the best compliment that i got ?
+strengths ??
+what i don’t like to do ?
+
+
+
+- Where to find system config files
+- How to debug if process is not starting up(in case not logs are created)
+- How to identify which port its listening 
+- How to debug if space issues comes up.
+- Difference between [[ ]] and [ ] in shell
+- Difference between Environment variable and shell variable
+- How to define environment variable in shell
+- How to print strings in multiple lines in shell script
+- What is generator
+- What is dictionary
+- What order it will print the data
+- What is diff between tuple and list
+- In other language how to call python script
+
+++++++++++++++++++++++++++++++
+
+Shell Tool
+
+TOP
+https://www.booleanworld.com/guide-linux-top-command/
+
+VMSTAT
+https://www.linode.com/docs/uptime/monitoring/use-vmstat-to-monitor-system-performance/
+
+strace
+https://www.howtoforge.com/linux-strace-command/
+strace -i ls - instruction pointer
+strace -r ls - time taken for each system call
+strace -t ls - timestamp when sys call happened
+strace -T ls - with time in bracket
+strace -c ls - Summary in listed form
+
+
+https://www.softwaretestinghelp.com/unix-interview-questions/
+https://www.softwaretestinghelp.com/shell-scripting-interview-questions/
+https://www.softwaretestinghelp.com/networking-interview-questions-2/
+https://www.guru99.com/unix-interview-questions.html
+https://intellipaat.com/interview-question/linux-interview-questions/
+
+
+
+
+SSL:
+https://www.ssl2buy.com/wiki/how-does-an-ssl-certificate-work
+https://www.ssl.com/article/ssl-tls-handshake-overview/
+
+
+Metadata/Inode
+https://unix.stackexchange.com/questions/23252/what-is-metadata-and-how-does-it-aid-in-the-fsck-process
+
+
+Thread dump : 
+	Kill -3 <pid>
+	jstack <pid>
+
+Heap dump:
+	jmap -dump:[live],format=b,file=<file-path> <pid>
+
+	VisualVM
+	Automatic through JVM paarameter
+
+
++++++++++++++++++++++++++
+
+Awk:
+awk '{print}' employee.txt
+awk -F: '{print $1}' test.txt
+awk  '{print $1}' test.txt
+awk '/a/ {print $0}' test.txt
+awk 'length($0) > 3' test.txt
+awk '{print NR}' test.txt
+awk 'END {print NR}' test.txt
+
+
+Find
+find . -name testfile.txt
+find . -type f -empty
+find . -type f -exec  ls {} \;
+find . -name *3 -mtime -3
+find . -name *txt -mtime +3
+
+tr ' ' '\n' < test | grep 'raj' | wc
+grep -o 'raj' test | wc -l
+
+Sed
+sed -i 's/kj/raj/g' test.txt
+sed '3,6d' filename.txt
+sed '6d' filename.txt
+
+
+Cut
+cut -c 3-5 test.txt
+cut -d " " -f 1,2 test.txt
+
++++++++++++++++++++++++++++
+
+Twitter:
+AName, CName
+Hash Table, Tree
+Eden Space
+TCP packet acknowledgement
+Tool to debug performance 
+Which language
+Process and threads diff
+
+
+Uber:
+Actual use cases of TCP/DUMP
+
+
+Simple Legal:
+Load Avg
+TOP command
+Performance improvement tools
+
+
+++++++++++++++++++++++++++++++
+
+
+Threading:
+- A new thread is spawned within the existing process
+- Starting a thread is faster than starting a process
+- Memory is shared between all threads
+- Mutexes often necessary to control access to shared data
+- One GIL (Global Interpreter Lock) for all threads
+
+Multiprocessing:
+- A new process is started independent from the first process
+- Starting a process is slower than starting a thread
+- Memory is not shared between processes
+- Mutexes not necessary (unless threading in the new process)
+- One GIL (Global Interpreter Lock) for each process
+
++++++++++++++++++++++++++++++++
+
+
+
+questions for Raj — Amazon interview 
+
+What is http protocol, how it works
+Difference between SSL , TLS
+What happens when u hit amazon.apple.com(in details)
+Why Ansible, not puppet
+How to configure CI/CD 
+Rest API , how it works
+How Secure sign comes up
+Example of dealing with customer
+https://flaviocopes.com/http-request/
