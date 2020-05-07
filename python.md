@@ -44,3 +44,12 @@
 * lambda function use cases
 
 * Python array vs list difference
+
+* In a git repo find a string and replace string with using bash/awk/grep
+on linux:
+git grep -l 'original_text' | xargs sed -i 's/original_text/new_text/g'
+on mac:
+git grep -l 'original_text' | xargs sed -i '' -e 's/original_text/new_text/g'
+
+
+*API progamming like update date in url --
