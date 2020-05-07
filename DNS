@@ -1,0 +1,76 @@
+What happens when you type in a url(www.google.com) in a browser and press enter?
+Simple way:
+www.goole.com + Enter
+DNS Resolves the hostname to IP address
+Checking the DNS Cache in the following order.
+Browser Cache
+OS Cache
+Local Router Cache
+ISP(Internet Service Provider) Cache
+BGP - Border Gateway Protocol
+If not found in any cache, ISP initiates the query to Outside (Public IP is assigned by ISP)
+Root Domain (.)
+Top-level Domain (.com)
+Second-level Domain (google.com)
+Third-level Domain (www.google.com)
+Browser initiates the TCP connection
+Client —> SYNC —> Server (client uses ARP or address resolution protocol to figure out which MAC address to send the packet to at layer 2)
+Server —> SYCN/ACK —> Cient
+Client —> ACK —> Server
+Then the connection successfully established and data is transmitted.
+Client (Browser) —> GET —> Server (www.google.com)
+Server —> HTTP Response —> Client
+Then, browser displays the HTTP Conent.
+Linux Boot Order
+BIOS - Basic I/O System
+POST - Power On Self Test
+Checks the hardware
+MBR - Master Boot Record ( First partition of table entry in the hard disk)
+Bootstrap Loader
+GRUB - Grand Unified Bootloader (GRUB,GRUB2, LILO[LInux LOader])
+This is to find the OS kernel and load it in the memory.
+/boot/grub/grub.conf
+Latest is GRUB2 - /boot/grub2/grub.cfg
+Kernel - Kernel executives - /etc/systemd
+Init Process ( old way of saying)
+Systemd - /etc/systemd/systemd/default.target
+Targets - default.target
+0 –> System Halt
+1 –> Single user mode
+3 –> Full multiuser mode with network
+5 –> Full multiuser mode with network and X display manager
+6 –> Reboot
+Inode - File Info is in Metadata. Metadata is stored in an Inode (256bytes). #ls -i # df -i 
+Linux Performance
+uptime
+Load - sum averages with a 1 minute, 5 minute, and 15 minute constant.
+dmesg | tail
+ oom-killer, and TCP dropping a request.
+vmstat 1
+Server Statistics
+mpstat -P ALL 1
+CPU time breakdowns per CPU
+pidstat 1
+Example: identifies two java processes as responsible for consuming CPU
+iostat -xz 1
+Understanding the block devices
+free -m
+sar -n DEV 1
+check network interface throughput: rxkB/s and txkB/s, as a measure of workload
+sar -n TCP,ETCP 1
+The active and passive counts are often useful as a rough measure of server load: number of new accepted connections (passive), and number of downstream connections (active). 
+top
+Load balancing Algorithms:
+Random
+Round Robin
+Weighted Round Robin
+Dynamic Round Robin
+Fastest
+Least Connection
+Observed
+Predictive
+Popular Service Mesh Projects:
+Cosul Connect
+Gloo
+Istio
+Linkerd
