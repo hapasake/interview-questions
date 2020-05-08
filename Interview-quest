@@ -1,0 +1,36 @@
+Interview questions
+
+What is your role?
+What do you do? What is your role in the team?
+Why are you switching the job?
+How does the worker nodes communicate with api-server?
+How is the api-server steups?
+What are the bootlenecks in K8s and any major issues?
+Have you seen any issues on ETCD?
+How is the Controller manager manage the worker nodes? Need in depth answer on it?
+Why docker to CRIO?
+How is CRIO different from Docker?
+Certs
+How certs are renewed in k8s?
+How are certs managed in your infrastrucure?
+What is the external Load Balancer you use for your k8s?
+Calico
+What is it?
+How it will work?
+What is Calico Storage and how it is done?
+Is there any role in assigning IP for the pods from kubelet?
+cni flag in kubelet
+Issues
+What if the pod is unable to schedule on a node and IP is not assigned to it?
+Docker
+How is it different from VM and docker in a VM?
+How are the resources allocated in docker from a Linux? —cpu, xyzzy?
+What are the namespaces in docker?
+What are the different storage in docker?
+Cloud
+How would you migrate a k8s cluster from onprem to Cloud?
+What are the things you will consider?
+What are the steps involved in it?
+Ansible
+Puppet
+Have you used any profiles?
