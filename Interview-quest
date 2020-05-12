@@ -5,7 +5,7 @@ What do you do? What is your role in the team?
 Why are you switching the job?
 How does the worker nodes communicate with api-server?
 How is the api-server steups?
-What are the bootlenecks in K8s and any major issues?
+What are the bottlenecks in K8s and any major issues?
 Have you seen any issues on ETCD?
 How is the Controller manager manage the worker nodes? Need in depth answer on it?
 Why docker to CRIO?
